@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 .dashboard-tile {
-  @apply shadow-md rounded-lg p-4 border-2 border-opacity-50 hover:border-opacity-100 hover:scale-[101%] hover:shadow-neutral-400 transition-all duration-500;
+  @apply hover:shadow-md rounded-lg p-4 hover:scale-[101%] hover:shadow-neutral-400 transition-all duration-500;
 }

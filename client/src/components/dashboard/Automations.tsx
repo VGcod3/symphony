@@ -31,15 +31,15 @@ export const Automations = () => {
     },
   ];
   return (
-    <div className='col-span-12 md:col-span-6 row-span-6 bg-gradient-to-br from-cyan-500 to-sky-500 border-cyan-600 dashboard-tile flex flex-col'>
-      <h4 className='text-2xl text-white font-semibold'>Automations</h4>
+    <div className='col-span-12 md:col-span-6 row-span-6 bg-white border-neutral-400  dashboard-tile flex flex-col'>
+      <h4 className='text-2xl text-neutral-600 font-semibold'>Automations</h4>
       <div className='grid grid-cols-12 flex-1 my-2 gap-2'>
         {automations.map((automation, index) => (
           <Automation key={index} {...automation} />
         ))}
       </div>
       <Button
-        className='btn btn-primary bg-cyan-700 hover:bg-cyan-800 focus:ring-cyan-600'
+        className='bg-gradient-to-br from-indigo-600 to-violet-600 hover:bg-indigo-700 focus:ring-indigo-600'
         size={'sm'}>
         Add new automation
       </Button>
@@ -59,10 +59,10 @@ export const Automation = ({
   return (
     <div className='col-span-6 space-y-1'>
       <div className='flex gap-3 items-center'>
-        <Icon size='42' className='p-2 rounded-full bg-cyan-700 text-white' strokeWidth={1.5} />
-        <h5 className='text-lg text-white'>{name}</h5>
+        <Icon size='42' className='p-2 rounded-full bg-indigo-600 text-white' strokeWidth={1.5} />
+        <h5 className='text-lg text-neutral-600'>{name}</h5>
       </div>
-      <p className='text-neutral-700 opacity-80 text-sm'>{description}</p>
+      <p className='text-neutral-600 opacity-80 text-sm'>{description}</p>
     </div>
   );
 };

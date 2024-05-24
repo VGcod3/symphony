@@ -15,13 +15,13 @@ const Stat = ({ name, value, Icon, cc }: iStat) => {
         <div className='flex gap-2 items-center'>
           <Icon
             size='36'
-            className='p-2 rounded-full bg-white bg-opacity-20 text-white shrink-0'
+            className='p-2 rounded-full bg-indigo-600  text-white shrink-0'
             strokeWidth={1.5}
           />
-          <h5 className='text-white text-sm'>{name}</h5>
+          <h5 className='text-neutral-500 text-sm'>{name}</h5>
         </div>
 
-        <p className='text-white opacity-80 text-2xl text-center'>{value}</p>
+        <p className='text-indigo-600 opacity-80 text-2xl text-center'>{value}</p>
       </div>
     </div>
   );
@@ -33,19 +33,19 @@ export const Stats = () => {
       name: 'Temperature',
       value: '22°C',
       Icon: ThermometerIcon,
-      cc: 'bg-gradient-to-br from-violet-500 to-indigo-500 border-violet-600',
+      cc: 'bg-white border-neutral-400',
     },
     {
       name: 'Humidity',
       value: '45%',
       Icon: DropletsIcon,
-      cc: 'bg-gradient-to-br from-emerald-500 to-green-600 border-emerald-600',
+      cc: 'bg-white border-neutral-400',
     },
     {
       name: 'Energy usage',
       value: 'Low',
       Icon: ZapIcon,
-      cc: 'bg-gradient-to-br from-teal-600 to-green-600 border-teal-700',
+      cc: 'bg-white border-neutral-400',
     },
   ];
 

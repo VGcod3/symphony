@@ -22,7 +22,7 @@ export class AuthService {
     const user = await this.prisma.user.create({
       data: {
         email: dto.email,
-        name: faker.person.firstName(),
+        name: dto.name,
         avatarPath: faker.image.avatar(),
         phone: faker.phone.number('+380 (##) ###-##-##'),
         password: await hash(dto.password),
@@ -93,7 +93,7 @@ export class AuthService {
     const refreshToken = this.jwt.sign(
       { id },
       {
-        expiresIn: '30s',
+        expiresIn: '7d',
       },
     );
 
@@ -101,9 +101,12 @@ export class AuthService {
   }
 
   private returnUserFields(user: User) {
+    const { id, name, email } = user;
+
     return {
-      id: user.id,
-      email: user.email,
+      id,
+      name,
+      email,
     };
   }
 }

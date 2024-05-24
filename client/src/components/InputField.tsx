@@ -1,78 +1,104 @@
-import { ReactNode } from 'react';
-
 import { Eye, EyeOff } from 'lucide-react';
-import { useState } from 'react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
+import { Label } from './ui/label';
+import { useId, useState } from 'react';
 
-import { ErrorMessage, Field, FieldProps } from 'formik';
+export type ListOfErrors = Array<string | null | undefined> | null | undefined;
 
-interface InputFieldProps {
-  name: string;
-  type?: string;
-  label: string;
-  defaultValue?: string;
-  placeholder?: string;
-  children?: ReactNode;
-  className?: string;
-}
-
-export default function InputField({
-  name,
-  type = 'text',
-  label,
-  children,
-  placeholder,
-  defaultValue,
-  className,
-}: InputFieldProps) {
-  const [showPassword, setShowPassword] = useState(false);
-
-  const toggleShowPassword = () => {
-    setShowPassword((prevShowPassword) => !prevShowPassword);
-  };
+export const ErrorList = ({ id, errors }: { errors?: ListOfErrors; id?: string }) => {
+  const errorsToRender = errors?.filter(Boolean);
+  if (!errorsToRender?.length) return null;
 
   return (
-    <div className='grid gap-2'>
-      <label htmlFor={name} className={'mt-0 block text-sm font-medium text-neutral-700'}>
-        {label}
-      </label>
-      <div className='relative rounded-md shadow-sm'>
-        <div className='absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none'>
-          {children}
-        </div>
+    <ul id={id} className='flex flex-col gap-1'>
+      {errorsToRender.map((e) => (
+        <li key={e} className='text-rose-500 text-sm'>
+          {e}
+        </li>
+      ))}
+    </ul>
+  );
+};
 
-        <Field name={name}>
-          {({ field }: FieldProps) => (
-            <Input
-              {...field}
-              id={name}
-              type={type === 'password' && showPassword ? 'text' : type}
-              placeholder={placeholder}
-              defaultValue={defaultValue}
-              className={[
-                children && `pl-10`,
-                `block w-full border-neutral-300 rounded-md shadow-sm sm:text-sm ${className}`,
-              ].join(' ')}
-            />
-          )}
-        </Field>
+export function Field({
+  labelProps,
+  inputProps,
+  errors,
+  className,
+}: {
+  labelProps: React.LabelHTMLAttributes<HTMLLabelElement>;
+  inputProps: React.InputHTMLAttributes<HTMLInputElement>;
+  errors?: ListOfErrors;
+  className?: string;
+}) {
+  const fallbackId = useId();
+  const id = inputProps.id ?? fallbackId;
+  const errorId = errors?.length ? `${id}-error` : undefined;
 
-        {type === 'password' && (
-          <Button
-            type='button'
-            variant={'ghost'}
-            className='focus:ring-indigo-600 absolute rounded-l-none inset-y-0 right-0 pr-3 flex items-center cursor-pointer '
-            onClick={toggleShowPassword}>
-            {showPassword ? (
-              <Eye strokeWidth={1.5} className='text-neutral-700  p-0.5' />
-            ) : (
-              <EyeOff strokeWidth={1.5} className='text-neutral-700 p-0.5' />
-            )}
-          </Button>
-        )}
+  return (
+    <div className={className}>
+      <Label htmlFor={id} {...labelProps} />
+      <Input
+        id={id}
+        aria-invalid={errorId ? true : undefined}
+        aria-describedby={errorId}
+        {...inputProps}
+      />
+      <div className='pt-1'>
+        {errors?.length ? <ErrorList id={errorId} errors={errors} /> : null}
       </div>
-      <ErrorMessage name={name} component='p' className='mb-t text-sm text-rose-600' />
+    </div>
+  );
+}
+
+export function PasswordField({
+  labelProps,
+  inputProps,
+  errors,
+  className,
+}: {
+  labelProps: React.LabelHTMLAttributes<HTMLLabelElement>;
+  inputProps: React.InputHTMLAttributes<HTMLInputElement>;
+  errors?: ListOfErrors;
+  className?: string;
+}) {
+  const [showPassword, setShowPassword] = useState(false);
+  const fallbackId = useId();
+  const id = inputProps.id ?? fallbackId;
+  const errorId = errors?.length ? `${id}-error` : undefined;
+
+  function toggleShowPassword() {
+    setShowPassword((prev) => !prev);
+  }
+
+  return (
+    <div className={className}>
+      <Label htmlFor={id} {...labelProps} />
+      <Input
+        id={id}
+        aria-invalid={errorId ? true : undefined}
+        aria-describedby={errorId}
+        {...inputProps}
+        type={showPassword ? 'text' : 'password'}
+      />
+
+      <div className='pt-1'>
+        {errors?.length ? <ErrorList id={errorId} errors={errors} /> : null}
+      </div>
+
+      <Button
+        type='button'
+        className={`absolute top-7 right-1 w-8 h-8 p-0 flex items-center align-middle`}
+        variant='ghost'
+        size='sm'
+        onClick={toggleShowPassword}>
+        {showPassword ? (
+          <Eye className='w-5 h-5 text-neutral-400' strokeWidth={1.5} />
+        ) : (
+          <EyeOff className='w-5 h-5 text-neutral-400' strokeWidth={1.5} />
+        )}
+      </Button>
     </div>
   );
 }

@@ -9,8 +9,8 @@ import { Providers } from '../store/Providers';
 const lato = Lato({ weight: ['400', '700', '900'], subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Welcome | SYMPHONY',
-  description: 'SYMPHONY project by F0rGotten;',
+  title: 'Welcome | HARMONY',
+  description: 'HARMONY project by Irish Whiskers;',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

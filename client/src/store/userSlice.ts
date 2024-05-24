@@ -1,32 +1,9 @@
-/////
 import { createSlice } from '@reduxjs/toolkit';
-
-export type UserData = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  password: string;
-};
-
-export type UserDataUpdate = {
-  firstName: string;
-  lastName: string;
-  password: string;
-};
-
-export type TokensData = {
-  refreshToken: string;
-  accessToken: string;
-};
-
-export type FullUserData = {
-  tokensData: TokensData | null;
-  userData: UserData | null;
-};
+import type { FullUserData } from './types';
 
 const initialState: FullUserData = {
-  userData: null,
-  tokensData: null,
+  userData: undefined,
+  tokensData: undefined,
 };
 
 const userSlice = createSlice({

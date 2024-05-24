@@ -15,9 +15,10 @@ interface Navigation {
 
 const navigation: Navigation = {
   main: [
-    { name: 'About us', href: '/about' },
-    { name: 'Contact us', href: '/contact' },
-    { name: 'See lots', href: '/auctions' },
+    { name: 'Home', href: '/' },
+    { name: 'Pricing', href: '/pricing' },
+    { name: 'Contact', href: '/contact' },
+    { name: 'Team', href: '/team' },
   ],
   social: [
     {
@@ -106,7 +107,7 @@ export default function Footer() {
           ))}
         </div>
         <p className='mt-8 text-center text-base text-neutral-400'>
-          &copy; 2023 Your Company, Inc. All rights reserved.
+          &copy; {new Date().getFullYear()} Irish Whiskers. All rights reserved.
         </p>
       </div>
     </footer>

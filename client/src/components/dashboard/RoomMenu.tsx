@@ -6,8 +6,6 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
@@ -27,9 +25,9 @@ export const DesktopRoomMenu = () => {
         <Button
           key={index}
           className={cn(
-            'flex-1 rounded-md flex items-center justify-center text-sm font-semibold   focus:ring-violet-600',
+            'flex-1 rounded-md flex items-center justify-center text-sm font-semibold   focus:ring-indigo-600 transition-all duration-300',
             activeRoom === room
-              ? 'bg-violet-600 text-white hover:bg-violet-700'
+              ? 'bg-gradient-to-br from-indigo-600 to-violet-600 text-white'
               : 'hover:bg-neutral-400 bg-neutral-300 text-neutral-700',
           )}
           onClick={() => dispatch(setActiveRoom(room))}>

@@ -1,31 +1,31 @@
 'use client';
-import { Clock, CreditCard, ShieldCheck, Tag } from 'lucide-react';
+import { Clock, CreditCard, LucideCurlyBraces, ShieldCheck, Tag } from 'lucide-react';
 import AnimatedWrapper from './AnimatedWrapper';
 
 const features = [
   {
-    name: 'Real-time bidding',
+    name: 'Automations',
     description:
-      'Experience the thrill of bidding in real-time. Get instant updates on the current highest bid and participate in exciting auctions.',
+      'Create custom automations to make your home work for you. Set up routines to turn on lights, adjust the thermostat, and more, all based on your preferences.',
     icon: Clock,
   },
   {
-    name: 'Wide range of items',
+    name: 'Security',
     description:
-      'Discover a wide range of items available for auction. From collectibles to electronics, there is something for everyone.',
-    icon: Tag,
-  },
-  {
-    name: 'Secure transactions',
-    description:
-      'Bid with confidence knowing that all transactions are secure. Our platform ensures the safety of your personal and payment information.',
+      'Protect your home with our security features. Receive notifications when motion is detected, doors are opened, and more.',
     icon: ShieldCheck,
   },
   {
-    name: 'Easy bidding process',
+    name: 'Payments',
     description:
-      'Place bids easily with just a few clicks. Our intuitive interface makes it simple to participate in auctions and track your bids.',
+      'Easily pay your bills and manage your subscriptions with our payment feature. Keep track of your expenses and never miss a payment.',
     icon: CreditCard,
+  },
+  {
+    name: 'Tags',
+    description:
+      'Organize your devices with tags. Group devices together and apply automations to multiple devices at once.',
+    icon: Tag,
   },
 ];
 
@@ -34,15 +34,14 @@ export default function FeaturesBlock() {
     <div className='bg-white py-24 sm:py-32'>
       <div className='mx-auto max-w-7xl px-6 lg:px-8'>
         <div className='mx-auto max-w-2xl lg:text-center'>
-          <h2 className='text-base font-semibold leading-7 text-indigo-600'>Bid with Confidence</h2>
+          <h2 className='text-base font-semibold leading-7 text-indigo-600'>Welcome to HARMONY</h2>
           <p className='mt-2 text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl'>
-            Discover a world of auctions at your fingertips
+            Control your home with ease
           </p>
           <AnimatedWrapper toggleMultiple>
             <p className='mt-6 text-lg leading-8 text-neutral-600'>
-              Our platform ensures secure transactions and provides a wide range of items to choose
-              from. Place bids easily with just a few clicks and track your bids effortlessly. Join
-              us now and immerse yourself in the exciting world of auctions.
+              HARMONY offers a range of features to make your bidding experience seamless. From
+              smart home integration to automations, SymphHARMONYony has you covered.
             </p>
           </AnimatedWrapper>
         </div>

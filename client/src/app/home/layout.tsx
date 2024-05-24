@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Register | SYMPHONY',
-  description: 'SYMPHONY project by F0rGotten;',
+  title: 'Register | HARMONY',
+  description: 'HARMONY project byIrish Whiskers;',
 };
 
 export default function RootLayout({

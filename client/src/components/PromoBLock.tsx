@@ -4,16 +4,20 @@ import Link from 'next/link';
 import { Button } from './ui/button';
 
 const offers = [
-  { name: 'Bid on a painting', description: 'Get a chance to own a masterpiece', href: '#' },
   {
-    name: 'Place a bid on a vintage car',
-    description: 'Experience the thrill of classic automobiles',
-    href: '#',
+    name: 'Smart home solutions',
+    description: 'Experience the future with our smart home solutions',
+    href: '/dashboard',
   },
   {
-    name: 'Join the auction for rare collectibles',
-    description: 'Discover unique items from around the world',
-    href: '#',
+    name: 'Home automation',
+    description: 'Automate your home with our smart devices',
+    href: '/dashboard',
+  },
+  {
+    name: 'Security systems',
+    description: 'Protect your home with our smart security systems',
+    href: '/dashboard',
   },
 ];
 
@@ -50,19 +54,19 @@ export default function Example() {
               <div className='mx-auto max-w-2xl py-24 lg:max-w-none lg:py-64'>
                 <div className='lg:pr-16'>
                   <AnimatedWrapper from='left'>
-                    <h2 className='text-4xl font-bold tracking-tight text-neutral-900 sm:text-5xl xl:text-6xl'>
-                      Make a bargain
+                    <h2 className='text-4xl font-bold tracking-tight text-neutral-700 sm:text-5xl xl:text-6xl'>
+                      Welcome to HARMONY
                     </h2>
                   </AnimatedWrapper>
                   <AnimatedWrapper from='left' delay={0.1} toggleMultiple>
                     <p className='mt-4 text-xl text-neutral-600'>
-                      Find and bid on your next auction item with our easy-to-use platform.
+                      Experience the future with our smart home solutions.
                     </p>
                   </AnimatedWrapper>
                   <div className='mt-6'>
                     <AnimatedWrapper from='left' delay={0.3} toggleMultiple>
-                      <Link href='/auctions'>
-                        <Button>Browse auctions</Button>
+                      <Link href='/dashboard'>
+                        <Button>Go to dashboard</Button>
                       </Link>
                     </AnimatedWrapper>
                   </div>
@@ -74,7 +78,7 @@ export default function Example() {
             <Image
               width={1920}
               height={380}
-              src='https://tailwindui.com/img/ecommerce-images/home-page-02-hero-half-width.jpg'
+              src='https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2906&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
               alt=''
               className='h-full w-full object-cover object-center'
             />

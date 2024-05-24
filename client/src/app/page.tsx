@@ -7,7 +7,6 @@ const HomePage = () => {
     <>
       <Promo />
       <FeaturesBlock />
-      <MainSection />
     </>
   );
 };

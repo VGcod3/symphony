@@ -8,10 +8,10 @@ async function bootstrap() {
 
   const app = await NestFactory.create(AppModule);
   const config = new DocumentBuilder()
-    .setTitle('Symphony Backend API Documentation')
+    .setTitle('HARMONY Backend API Documentation')
     .setDescription(' API description')
     .setVersion('1.0')
-    .addServer('http://localhost:3000/', 'Local environment')
+    .addServer('http://localhost:5000/', 'Local environment')
     .addTag('IOT')
 
     .build();

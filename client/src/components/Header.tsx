@@ -17,7 +17,7 @@ import {
   DropdownMenuTrigger,
 } from './ui/dropdown-menu';
 
-const brandName = 'SYMPHONY';
+const brandName = 'HARMONY';
 
 type MenuItem = {
   name: string;
@@ -25,11 +25,10 @@ type MenuItem = {
 };
 
 const navigation: MenuItem[] = [
-  { name: 'Home', href: '/home' },
-  { name: 'Auctions', href: '/auctions' },
-  { name: 'Categories', href: '/categories' },
-  { name: 'About', href: '/about' },
+  { name: 'Home', href: '/' },
+  { name: 'Pricing', href: '/pricing' },
   { name: 'Contact', href: '/contact' },
+  { name: 'Team', href: '/team' },
 ];
 
 export default function Header() {
@@ -38,7 +37,7 @@ export default function Header() {
   const user = useSelector((state) => state.user.userData);
 
   return (
-    <header>
+    <header className='w-full mx-auto max-w-7xl'>
       <Dialog.Root>
         <nav className='flex items-center justify-between p-6 lg:px-8' aria-label='Global'>
           <div className='flex lg:flex-1'>
